@@ -1,0 +1,22 @@
+{
+  "name": "docscan-node",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
+    "express": "~4.16.0",
+    "hbs": "^4.0.5",
+    "http-errors": "~1.6.2",
+    "node-rsa": "^1.0.5",
+    "nodemon": "^1.19.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "uuid": "^3.3.2",
+    "yoti": "^3.7.1"
+  }
+}
