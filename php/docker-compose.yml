@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+      build: .
+      ports:
+          - "4002:443"
+      volumes:
+        - ./:/usr/share/nginx/html
+      links:
+        - php
+      env_file:
+        - .env
+
+  php:
+      image: php:7.3-fpm-alpine
+      volumes:
+        - ./:/usr/share/nginx/html
+      env_file:
+        - .env

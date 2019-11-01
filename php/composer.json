@@ -1,0 +1,10 @@
+{
+    "name": "getyoti/docscan-php-demo",
+    "description": "Minimal PHP demo",
+    "require": {
+        "yoti/yoti-php-sdk": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {"Yoti\\DocScan\\": "src"}
+    }
+}
