@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/static/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row mb-3 mt-3">
+                <form action="/success/json">
+                    <button type="submit" class="btn btn-primary">View as JSON</button>
+                </form>
+                <form action="/success">
+                    <button type="submit" class="btn btn-primary ml-3">Refresh Page</button>
+                </form>
+            </div>
+            <div class="row mb-3">
+                <h3>Processing Status: {{state}}</h3>
+            </div>
+            <div class="row grey">
+                {% for doc in resources.id_documents %}
+                <div class="col-8">
+                    <div>Document Type: {{doc.document_type}}</div>
+                    <div>Issuing Country: {{doc.issuing_country}}</div>
+                </div>
+                <div class="col-4">
+                    {% for page in doc.pages %}
+                    <img width="100%" height="200" src="/media/image/{{page.media.id}}/" />
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <hr />
+            {% for check in checks %}
+            {% if check.report is not None %}
+            <div class="row mb-3 mt-3 grey">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h5>Check: {{check.type}}</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <table>
+                                <tr>
+                                    <td>Check Type</td>
+                                    <td>Status</td>
+                                </tr>
+                                {% for breakdown in check.report.breakdown %}
+                                <tr>
+                                    <td>{{breakdown.sub_check}}</td>
+                                    <td>{{breakdown.result}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
