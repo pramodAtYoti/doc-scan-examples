@@ -2,7 +2,7 @@
 
 - Clone this project
 - Run `npm install`
-- Create an application on https://www.hub.yoti.com and download your private keys and SDK ID
+- Create an application on https://hub.yoti.com/ and download your private keys and SDK ID
 - Request the API base URL from sdksupport@yoti.com
 - Copy your PEM file into `/keys` and rename to `key.pem`
 - Create a .env file using the example `.env.example` file
