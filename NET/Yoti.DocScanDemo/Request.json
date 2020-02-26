@@ -1,0 +1,35 @@
+{
+  "client_session_token_ttl": 600,
+  "resources_ttl": 604800,
+  "user_tracking_id": "5ba6ed82-d1c0-410e-92a1-0d034afd02fd",
+  "notifications": {
+    "endpoint": "https://yourdomain.com/idverify/updates",
+    "topics": [
+      "resource_update",
+      "task_completion",
+      "check_completion",
+      "session_completion"
+    ]
+  },
+  "requested_checks": [
+    {
+      "type": "ID_DOCUMENT_AUTHENTICITY",
+      "config": {}
+    }
+  ],
+  "requested_tasks": [
+    {
+      "type": "ID_DOCUMENT_TEXT_DATA_EXTRACTION",
+      "config": {
+        "manual_check": "FALLBACK"
+      }
+    }
+  ],
+  "sdk_config": {
+    "allowed_capture_methods": "CAMERA_AND_UPLOAD",
+    "primary_colour": "#2d9fff",
+    "preset_issuing_country": "USA",
+    "success_url": "https://yourdomain.com/success",
+    "error_url": "https://yourdomain.com/error"
+  }
+}

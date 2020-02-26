@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h2>Response:</h2>
+    <p>@Model.HttpResponseMessage.ToString()</p>
+
+    <h3>Content:</h3>
+    <p>@Model.PageContent</p>
+</div>
