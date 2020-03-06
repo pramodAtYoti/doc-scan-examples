@@ -4,6 +4,7 @@ from django.http import JsonResponse
 
 from yoti_example.doc_scan import generate_session, get_data_for_session, get_media
 
+from app_settings import YOTI_BASE_URL
 
 class IndexView(TemplateView):
     template_name = "index.html"
@@ -24,7 +25,8 @@ class IndexView(TemplateView):
             self.template_name,
             context={
                 "session_id": request.session["yoti_session_id"],
-                "client_token": request.session["yoti_client_token"]
+                "client_token": request.session["yoti_client_token"],
+                "base_url": YOTI_BASE_URL
             }
         )
 
