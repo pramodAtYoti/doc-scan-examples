@@ -1,4 +1,4 @@
-## Minimal Yoti Docs Scan Example Project (.NET)
+## Minimal Yoti Doc Scan Example Project (.NET)
 
 ### Setup
 
